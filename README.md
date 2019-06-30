@@ -9,3 +9,10 @@ the while and for loops;
 flow control;
 logical and bitwise operations;
 lists and arrays.
+
+# Module 4
+defining and using functions;
+different ways of passing arguments;
+name scopes;
+tuples and dictionaries;
+data processing.
