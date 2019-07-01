@@ -119,6 +119,8 @@ def Play():
             return    
 
 def playRound():
+    print ("Let's play a round of Tic Tac Toe!\nComputer plays X and places the first move.")
+    print ("Player plays O")
     play = True
     playerWin = 0
     compWin = 0
