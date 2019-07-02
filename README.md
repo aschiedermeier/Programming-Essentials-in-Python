@@ -16,3 +16,15 @@ different ways of passing arguments;
 name scopes;
 tuples and dictionaries;
 data processing.
+
+# Module 5
+•	Python modules: their rationale, function, how to import them in different ways, and present the content of some standard modules provided by Python;
+•	the way in which modules are coupled together to make packages.
+•	the concept of an exception and Python's implementation of it, including the try-except instruction, with its applications, and the raise instruction.
+•	strings and their specific methods, together with their similarities and differences compared to lists.
+
+# Module 6
+the object-oriented approach - foundations;
+classes, methods, objects, and the standard objective features;
+exception handling;
+working with files.

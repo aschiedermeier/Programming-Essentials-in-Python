@@ -58,7 +58,7 @@ print (fun(0, z=1,y=3))
 # 6
 print("#6: ")
 # None value
-# may not be used outside functions most probably false
+# ans: may not be used outside functions (is false)
 
 # None can be assigned to variables
 # None can be compared with variables
@@ -84,9 +84,8 @@ print (tup)
 
 # 9 
 print("#9: ")
+# ans: they can be indexed and sliced like lists.
 # tuples are sequnce types.
-# i think they can be indexed and sliced like lists.
-# indexed for sure
 # can be deleted with del, but not modified
 
 # 10
@@ -106,14 +105,13 @@ print ( fun(fun(2)+1))
 
 # 11
 print("#11: ")
-
-# mistake: have to check!!!
 # two
+# was a trick, as the block didn't do anything. ;-)
 
 dct = {'one':'two', 'three':'one','two':'three'}
-v = dct ['one']
-for k in range(len(dct)):
-    v = dct[v]
+v = dct ['one'] # calling the value of the key 'one'--> 'two'
+for k in range(len(dct)): # BS: k ist not in block
+    v = dct[v] # BS: dict cannot be indexed, unless it's sorted
 print (v)
 
 # 12
@@ -138,15 +136,45 @@ print(y)
 # 14
 print("#14: ") 
 # ans: print(k[0])
-# mistake: recheck
+# mistake: supertricky one
  
 dct = {}
 lst = ['a','b','c','d']
 for i in range (len(lst)-1):
-    dct[lst[i]] = (lst[i],)
+    dct[lst[i]] = (lst[i],) #due to the comma it's a dictionary with tuples.
+# without comma a dictionary with strings
 for i in sorted(dct.keys()):
     k = dct[i]
+    print(k[0])
+
+###
+# 14 in
+dct = {}
+dct1 = {}
+
+lst = ['a','b','c','d']
+for i in range (len(lst)-1):
+    dct[lst[i]] = (lst[i],)
+    dct1[lst[i]] = (lst[i])
+    
+print (sorted(dct))
+print (type(dct))
+
+print (sorted(dct1))
+print (type(dct1))
+
+for i in sorted(dct.keys()):
+    k = dct[i]
+    print (type(k))
     print(k)
+    print(k[0])
+    
+for i in sorted(dct1.keys()):
+    k = dct1[i]
+    print (type(k))
+    print(k)
+    print(k[0])
+
 
 # 15 
 print("#15: ")
@@ -154,11 +182,22 @@ print("#15: ")
 
 # seems to be errorness, 
 # as function object does not support deletion and item assignment
-# list = ['Mary','had','a','little','lamb']
+# list = ['Mary','had','a','little','lamb'] #cannot name a list "list"
 # def list(lst):
-#     del lst[3]
-#     lst[3]='ram'
-# print(list(list))#
+#     del lst[3] # this actually affects the list outside the function
+#     lst[3]='ram' # this too
+# print(list(list)) # function does not return anything, so prints "None"
+# print (liste) # this line here would print "print ['Mary','had','a','ram']
+
+# working code
+liste = ['Mary','had','a','little','lamb']
+def list(lst):
+    del lst[3]
+    lst[3]='ram'
+    print(lst)
+print (liste)
+print(list(liste))
+print (liste)
 
 # 16
 print("#16: ")
@@ -193,12 +232,12 @@ fun()
 print("#19: ")
 
 # built-in function
-# come with Python, integral part of Python
+# ans: come with Python, integral part of Python
 
 # 20
 print("#20: ")
-# may be invoked without any argument, or jsut one
-# mistake, i think
+# ans: may be invoked without any argument, or just one
+
 
 def function (x=0):
     return x
