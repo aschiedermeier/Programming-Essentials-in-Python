@@ -20,20 +20,10 @@ disp = {0:["***","* *","* *","* *","***"],
 #     for j in range(10):
 #         print (disp[j][i],end="")
 
-    
-print (disp[0][0],end=" ")
-print (disp[1][0],end=" ")
-print ()
-print (disp[0][1],end=" ")
-print (disp[1][1],end=" ")
-print ()
-print (disp[0][2],end=" ")
-print (disp[1][2],end=" ")
-print ()
-print (disp[0][3],end=" ")
-print (disp[1][3],end=" ")
-print ()
-print (disp[0][4],end=" ")
-print (disp[1][4],end=" ")
-print ()
+digit = "0123456789"
+digit = list (digit)
+for l in range(5):
+    for d in digit:
+        print (disp[int(d)][l],end=" ")
+    print()
 
