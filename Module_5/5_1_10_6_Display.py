@@ -1,4 +1,8 @@
-# Number Display
+# 5.1.10.6 LAB: A LED Display
+# LAB 
+# Your task is to write a program which is able to simulate the work of a seven-display device,
+# although you're going to use single LEDs instead of segments.
+
 
 disp = {0:["***","* *","* *","* *","***"],
 1:["  *","  *","  *","  *","  *"],
