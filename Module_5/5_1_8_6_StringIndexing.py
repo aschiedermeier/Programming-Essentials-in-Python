@@ -20,15 +20,15 @@ print()
 
 # Slices
 
-alpha = "abdefg"
+alpha = "abcdef"
 
 print(alpha[1:3])
 print(alpha[3:])
 print(alpha[:3])
 print(alpha[3:-2])
 print(alpha[-3:4])
-print(alpha[::2])
-print(alpha[1::2])
+print(alpha[::2]) # every second one - start 0
+print(alpha[1::2])# every second one - start 1
 
 # in and not in operators
 
