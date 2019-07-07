@@ -25,3 +25,8 @@ while fnd != -1:      # as long as it's still found
 
 print('kappa'.find('a', 1, 4))
 print('kappa'.find('a', 2, 4))
+
+# Demonstrating the rfind() method
+print("tau tau tau".rfind("ta"))
+print("tau tau tau".rfind("ta", 9))
+print("tau tau tau".rfind("ta", 3, 9))
