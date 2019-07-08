@@ -15,24 +15,41 @@ def mysplit(strng):
 
     words = []
     strng = strng.strip() # strip witespace, otherwise i return every whitespace
+    start = 0
+    if strng == "":
+        return words
+    while True:
+        wspace = strng.find(" ",start)
+        # print (wspace)
+        if wspace == -1:
+            word = strng[start:]
+            words.append(word)
+            return words
+        word = strng[start:wspace]
+        # print (word)
+        words.append(word) 
+        start = wspace+1
+    
+    return words
+
+        
+    """
     sp = strng.find(" ") # find first whitespace
     if sp == -1 and strng != "":
         words.append(strng) 
     wordstart = 0
     while sp != -1:
         word = strng[wordstart:sp] 
-        #if word == "":
-        #    continue
         wordstart = sp+1
         words.append(word) 
         sp = strng.find(" ", wordstart)
 
     return words
-        
+    """    
+print(mysplit("012 456 890"))
 
 
-
-#print(mysplit("Hi"))
+print(mysplit("Hi"))
 print(mysplit("Hello my    friend"))
 print(mysplit("To be or not to be, that is the question"))
 print(mysplit("To be or not to be,that is the question"))
