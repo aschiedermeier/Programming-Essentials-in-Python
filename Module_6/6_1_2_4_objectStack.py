@@ -19,7 +19,7 @@ print(len(stackObject.stackList))
 
 # 6.1.2.6 A short journey from procedural to object approach
 # encapsulation 
-# AttributeError
+# AttributeError as __stacklist not accessible from outside the class
 
 class Stack:
     def __init__(self):
