@@ -1,5 +1,8 @@
 # 6.1.4.9 OOP: Method
 # Reflection and introspection
+# The function named incIntsI() gets an object of any class, 
+# scans its contents in order to find all integer attributes with names starting with i, 
+# and increments them by one.
 
 class MyClass:
     pass
