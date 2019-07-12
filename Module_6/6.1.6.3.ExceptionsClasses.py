@@ -3,7 +3,6 @@ print('''
 Exceptions are classes
 when an exception is raised, an object of the class is instantiated, 
 and goes through all levels of program execution, looking for the except branch that is prepared to deal with it.
-
 ''')
 
 try:
