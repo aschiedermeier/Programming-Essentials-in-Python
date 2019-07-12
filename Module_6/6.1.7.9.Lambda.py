@@ -17,7 +17,7 @@ for a in range(-2, 3):
 
 print('''
 6.1.7.10 Generators and closures
-The lambda function
+How to use lambdas and what for?
 The most interesting part of using lambdas appears when you can use them in their pure form - 
 as anonymous parts of code intended to evaluate a result.
 Polynom function
