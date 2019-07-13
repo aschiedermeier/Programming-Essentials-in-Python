@@ -48,9 +48,13 @@ Its role is simple: you give an error number and get a string describing the mea
 
 from os import strerror
 try:
-    #s = open("c:/users/user/Desktop/file.txt", "rt")
+    # vsc is looking for file in main folder (github), not in subfolder of py-life(module-6)
+    # cmd is looking for file in subfolder
+    # needed to make a copy of module_6-folder to open files from both locations
+    # in this case opening form vsc & cmd gives different results
+    # s = open("c:/users/user/Desktop/file.txt", "rt")
     s = open("file.txt", "rt")
     # actual processing goes here
     s.close()
 except Exception as exc:
-    print("The file could not be opened:", strerror(exc.errno));
+    print("The file could not be opened:", strerror(exc.errno))
