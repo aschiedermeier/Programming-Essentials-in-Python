@@ -30,11 +30,13 @@ print()
 # key: letter
 # value: frequency, default 0
 letters = {}
-for char in range (97,102): # later 123, as 122 is z
+for char in range (97,123): # 122 is 'z'
     letters[chr(char)]=(0)
 
+
+# counting the letters, only lower case a-z - ignoring spaces, upper case and signs
 for ch in content:
-    if ch in letters:   # only counts lower a-z
+    if ch in letters:   
         letters[ch]+=1   
 
 # print out result, only non-zero values

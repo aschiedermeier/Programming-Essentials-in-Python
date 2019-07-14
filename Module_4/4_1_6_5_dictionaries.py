@@ -4,6 +4,10 @@
 dict = {"cat" : "chat", "dog" : "chien", "a_horse" : "cheval"}
 words = ['cat', 'lion', 'horse']
 
+# print out single entry
+print(dict["cat"])
+print()
+
 # print out only if word in dictionary
 for word in words:
     if word in dict:
@@ -29,6 +33,12 @@ print("unsorted:")
 print (dict)
 print("sorted:")
 print(sorted(dict))
+print("sorted keys:")
+print(sorted(dict.keys()))
+print("sorted items:")
+print(sorted(dict.items()))
+print("sorted values:")
+print(sorted(dict.values()))
 
 print()
 # item () method
