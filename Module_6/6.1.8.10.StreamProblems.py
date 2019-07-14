@@ -22,7 +22,6 @@ If you are a very careful programmer,
 you may feel the need to use the sequence of statements similar to those presented below:
 ''')
 
-
 import errno
 try:
     #s = open("c:/users/andi/Desktop/file.txt", "rt")
@@ -36,7 +35,6 @@ except Exception as exc:
         print("You've opened too many files.")
     else:
         printf("The error number is:", exc.errno)
-
 
 print('''
 6.1.8.11 Processing files

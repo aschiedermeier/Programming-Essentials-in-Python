@@ -4,7 +4,6 @@ Processing text files
 if you're using a Unix/Linux OS configured to use UTF-8 as a system-wide setting, the open() function may look as follows:
 ''')
  
-
 # vsc is looking for file in main folder (github), not in subfolder of py-life(module-6)
 # cmd is looking for file in subfolder
 # needed to make a copy of module_6-folder to open files from both locations
