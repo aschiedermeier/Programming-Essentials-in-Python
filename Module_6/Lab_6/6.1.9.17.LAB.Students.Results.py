@@ -6,6 +6,40 @@ reads the file contents and counts the sum of the received points for each stude
 prints a simple (but sorted) report, just like this one:
 ''')
 
+#### missing
+# read from file line by line
+# https://edube.org/learn/programming-essentials-in-python-part-2/working-with-real-files-3
+# https://github.com/aschiedermeier/Programming-Essentials-in-Python/blob/master/Module_6/6.1.9.1.ProcessText.py
+
+# errors
+
+from os import strerror
+
+# enter filename 
+# srcname = input("Hello Prof. Jekyll's, please enter file name: ")
+# srcname = "stud.txt" # helper to skip file name
+
+
+from os import strerror
+try:
+    ccnt = lcnt = 0
+    s = open(srcname, "rt")
+    line = s.readline()
+    while line != '':
+        lcnt += 1
+        for ch in line:
+            # print(ch, end='')
+            ccnt += 1
+        line = s.readline()
+    s.close()
+    print("\n\nCharacters in file:", ccnt)
+    print("Lines in file:     ", lcnt)
+except IOError as e:
+    print("I/O error occurred:", strerror(e.errno))
+
+
+
+
 """
 text.txt 
 John	Smith	5
