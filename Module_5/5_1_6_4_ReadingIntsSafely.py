@@ -13,7 +13,6 @@ def readint(prompt, min, max):
         if  not (min <= ans <= max):
             print ("Error: the value is not within permitted range (min..max)")
         else: 
-            entered == True
             return ans
             
             
