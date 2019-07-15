@@ -63,5 +63,5 @@ try:
                 fo.write(ch) # write char by char	
     fo.close()
 except IOError as e:
-	print("I/O error occurred: ", strerr(e.errno))
+	print("I/O error occurred: ", strerror(e.errno))
 
