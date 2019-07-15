@@ -28,7 +28,7 @@ try:
     s = open("file1.txt", "rt")
     # actual processing goes here
     s.close()
-except Exception as exc:
+except IOError as exc: # not Exeption as in original, as errno belongs to IOError
     if exc.errno == errno.ENOENT:
         print("The file doesn't exist.")
     elif exc.errno == errno.EMFILE:
@@ -54,5 +54,5 @@ try:
     s = open("file1.txt", "rt")
     # actual processing goes here
     s.close()
-except Exception as exc:
+except IOError as exc:
     print("The file could not be opened:", strerror(exc.errno))

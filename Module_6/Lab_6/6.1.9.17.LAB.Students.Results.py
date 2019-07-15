@@ -7,9 +7,6 @@ prints a simple (but sorted) report, just like this one:
 ''')
 
 #### missing
-# read from file line by line
-# https://edube.org/learn/programming-essentials-in-python-part-2/working-with-real-files-3
-# https://github.com/aschiedermeier/Programming-Essentials-in-Python/blob/master/Module_6/6.1.9.1.ProcessText.py
 
 # errors
 """
@@ -26,20 +23,45 @@ and the third when the source file exists but is empty.
 
 from os import strerror
 
+
 class StudentsDataException(Exception):
-	pass
+    def __init__(self,fileName,message):
+        Exception.__init__(self,message)
+        self.fileName=fileName
+"""
+class StudentsDataException(Exception):
+    pass
+"""
+
+
+# class PizzaError(Exception):
+#     def __init__(self, pizza='uknown', message=''):
+#         Exception.__init__(self, message)
+#         self.pizza = pizza
 
 class BadLine(StudentsDataException):
-	# put your code here
+    def __init__(self,message="Bad data!"):
+        StudentsDataException.__init__(self,message)
     pass
 
+# class TooMuchCheeseError(PizzaError):
+#     def __init__(self, pizza='uknown', cheese='>100', message=''):
+#         PizzaError.__init__(self, pizza, message)
+#         self.cheese = cheese
+
 class FileEmpty(StudentsDataException):
-	# put your code here
-	pass
+    def __init__(self,fileName,message="Empty file!"):
+        StudentsDataException.__init__(self,fileName,message)
+        self.fileName=fileName
+        #pass
 	
 # enter filename 
 # srcname = input("Hello Prof. Jekyll's, please enter file name: ")
-srcname = "stud.txt" # helper to skip file name
+#srcname = "stud.txt" # helper to skip file name
+srcname = "stud_empty.txt" # helper for empty file Error
+#srcname = "stud_bad_line.txt" # helper to skip file name
+#srcname = "stud1.txt" # helper for non existing text file - IOError
+
 
 # empty dictionary
 stud ={}
@@ -49,6 +71,10 @@ from os import strerror
 try:
     ccnt = lcnt = 0
     s = open(srcname, "rt")
+    content = s.read()  # reading the whole file at once
+    if content == "":
+        print ("throw empty")
+        raise FileEmpty(srcname) # raise Error with arg filename
     line = s.readline() # read the first line
     while line != '':   # check if line is not empty
         print("line")
@@ -67,7 +93,11 @@ try:
     s.close()
 except IOError as e:
     print("I/O error occurred:", strerror(e.errno))
-
+    exit(e.errno)
+except FileEmpty as fe:
+    print (fe)
+    print("catch Empty")
+    exit()
 print ("final result")
 # present final result
 for i in sorted(stud):

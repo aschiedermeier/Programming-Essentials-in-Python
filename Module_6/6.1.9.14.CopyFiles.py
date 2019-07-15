@@ -15,7 +15,7 @@ except IOError as e:
 dstname = input("Destination file name?: ")
 try:
     dst = open(dstname, 'wb')
-except Exception as e:
+except IOError as e:
     print("Cannot create destination file: ", strerr(e.errno))
     src.close()
     exit(e.errno)	
