@@ -11,15 +11,15 @@ class MyZeroDivisionError(ZeroDivisionError): # own exception derived from ZeroD
 	pass
 
 def doTheDivision(mine):
-	if mine:
+	if mine: # if True
 		raise MyZeroDivisionError("some worse news")
-	else:		
+	else:	# if False		
 		raise ZeroDivisionError("some bad news")
 
 for mode in [False, True]:
 	try:
 		doTheDivision(mode)
-	except ZeroDivisionError:
+	except ZeroDivisionError: # catches both errors, as it's the superError
 		print('Division by zero')
 
 
@@ -27,61 +27,7 @@ for mode in [False, True]:
 	try:
 		doTheDivision(mode)
 	except MyZeroDivisionError:
-		print('My division by zero')
+		print('My division by zero') # catches only subError
 	except ZeroDivisionError:
-		print('Original division by zero')
+		print('Original division by zero') # catches subError and superError. Needs to be on the bottom
 		
-print('''
-6.1.6.7 Exceptions once again
-How to create your own exception: continued
-PizzaError
-When you're going to build a completely new universe filled with completely new creatures 
-that have nothing in common with all the familiar things, 
-you may want to build your own exception structure.
-''')
-
-class PizzaError(Exception):
-    def __init__(self, pizza, message):
-        Exception.__init__(message)
-        self.pizza = pizza	
-
-
-class TooMuchCheeseError(PizzaError):
-    def __init__(self, pizza, cheese, message):
-        PizzaError._init__(self, pizza, message)
-        self.cheese = cheese
-        
-print('''
-6.1.6.8 Exceptions once again
-How to create your own exception: continued
-PizzaError
-
-''')
-
-class PizzaError(Exception):
-    def __init__(self, pizza='uknown', message=''):
-        Exception.__init__(self, message)
-        self.pizza = pizza
-
-
-class TooMuchCheeseError(PizzaError):
-    def __init__(self, pizza='uknown', cheese='>100', message=''):
-        PizzaError.__init__(self, pizza, message)
-        self.cheese = cheese
-
-
-def makePizza(pizza, cheese):
-	if pizza not in ['margherita', 'capricciosa', 'calzone']:
-		raise PizzaError
-	if cheese > 100:
-		raise TooMuchCheeseError
-	print("Pizza ready!")
-
-
-for (pz, ch) in [('calzone', 0), ('margherita', 110), ('mafia', 20)]:
-	try:
-		makePizza(pz, ch)
-	except TooMuchCheeseError as tmce:
-		print(tmce, ':', tmce.cheese)
-	except PizzaError as pe:
-		print(pe, ':', pe.pizza)

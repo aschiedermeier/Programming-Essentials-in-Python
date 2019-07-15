@@ -7,6 +7,7 @@ class Star:
         self.galaxy = galaxy
 
 sun = Star("Sun", "Milky Way")
+# print like this does not look good, as it invokes the default __str__() method
 print(sun) # "<__main__.Star object at 0x7f1074cc7c50>" object identifier
 
 ###

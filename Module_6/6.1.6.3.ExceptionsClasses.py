@@ -8,8 +8,8 @@ and goes through all levels of program execution, looking for the except branch 
 try:
     i = int("Hello!")
 except Exception as e:
-    print(e)
-    print(e.__str__())
+    print(e) # prints brief message about error
+    print(e.__str__()) # identical effect
     
 print()
 
@@ -17,57 +17,19 @@ try:
     i = 1/0
 except Exception as e:
     print(e)
-    print(e.__str__())    
-    
-print('''
-6.1.6.4 Exceptions once again
-Exceptions are classes
-This program dumps all predefined exception classes in the form of a tree-like printout.
-''')
+  
 
-def printExcTree(thisclass, nest = 0):
-    if nest > 1:
-        print("   |" * (nest - 1), end="")
-    if nest > 0:
-        print("   +---", end="")
-
-    print(thisclass.__name__)
-
-    for subclass in thisclass.__subclasses__():
-        printExcTree(subclass, nest + 1)
-
-printExcTree(BaseException)
-
-print('''
-6.1.6.5 Exceptions once again
-Detailed anatomy of exceptions
-The BaseException class introduces a property named args. 
-It's a tuple designed to gather all arguments passed to the class constructor. 
-''')
-
-def printargs(args):
-	lng = len(args)
-	if lng == 0:
-		print("")
-	elif lng == 1:
-		print(args[0])
-	else:
-		print(str(args))
-
+print()
 try:
-	raise Exception
+    raise Exception()
 except Exception as e:
-	print(e, e.__str__(), sep=' : ' ,end=' : ')
-	printargs(e.args)
+    print(e) # no message, as i only raised a generic message
+   
 
+print()
 try:
-	raise Exception("my exception")
+    raise Exception("my Error Message")
 except Exception as e:
-	print(e, e.__str__(), sep=' : ', end=' : ')
-	printargs(e.args)
+    print(e) # message from argument 
+  
 
-try:
-	raise Exception("my", "exception")
-except Exception as e:
-	print(e, e.__str__(), sep=' : ', end=' : ')
-	printargs(e.args)

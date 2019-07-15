@@ -13,9 +13,15 @@ prints a simple (but sorted) report, just like this one:
 
 # errors
 """
-your program must be fully protected against all possible failures: the file's non-existence, the file's emptiness, or any input data failures; encountering any data error should cause immediate program termination, and the erroneous should be presented to the user;
-implement and use your own exceptions hierarchy - we've presented it in the editor; the second exception should be raised when a bad line is detect, and the third when the source file exists but is empty.
+your program must be fully protected against all possible failures: 
+the file's non-existence, the file's emptiness, 
+or any input data failures; 
+encountering any data error should cause immediate program termination, and the erroneous should be presented to the user;
+implement and use your own exceptions hierarchy - we've presented it in the editor; 
+the second exception should be raised when a bad line is detect, 
+and the third when the source file exists but is empty.
 """
+# todo:
 
 
 from os import strerror
@@ -25,10 +31,11 @@ class StudentsDataException(Exception):
 
 class BadLine(StudentsDataException):
 	# put your code here
+    pass
 
 class FileEmpty(StudentsDataException):
 	# put your code here
-	
+	pass
 	
 # enter filename 
 # srcname = input("Hello Prof. Jekyll's, please enter file name: ")
@@ -42,21 +49,26 @@ from os import strerror
 try:
     ccnt = lcnt = 0
     s = open(srcname, "rt")
-    line = s.readline()
-    while line != '':
-        line = s.readline()
-        # insert line processing code here
+    line = s.readline() # read the first line
+    while line != '':   # check if line is not empty
+        print("line")
         print (line) #check
         b = line.split()
+        print("line_split")
         print (b) #check 
+        print("b_0")
+        print(b[0])
         if (b[0],b[1]) in stud.keys():# if student in dict
             stud[(b[0],b[1])]+=float(b[2]) # add points
         else:   
-            stud[(b[0],b[1])]=float(b[2]) # add student 
+            stud[(b[0],b[1])]=float(b[2]) # add student
+        print("stud:",stud)
+        line = s.readline() # check new line, if empty loop is broken
     s.close()
 except IOError as e:
     print("I/O error occurred:", strerror(e.errno))
 
+print ("final result")
 # present final result
 for i in sorted(stud):
     print(i[0],i[1],stud[i])

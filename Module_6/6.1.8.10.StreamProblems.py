@@ -8,7 +8,7 @@ The IOError object is equipped with a property named errno
 try:
     #s = open("c:/users/user/Desktop/file.txt", "rt")
     # s = open("C:\Users\Andi\Desktop\file.txt", "rt")
-    s = open("file.txt", "rt")
+    s = open("file1.txt", "rt")
     # C:\Users\Andi\Desktop\file.txt
     # some stream operations
 except IOError as exc:
@@ -25,7 +25,7 @@ you may feel the need to use the sequence of statements similar to those present
 import errno
 try:
     #s = open("c:/users/andi/Desktop/file.txt", "rt")
-    s = open("file.txt", "rt")
+    s = open("file1.txt", "rt")
     # actual processing goes here
     s.close()
 except Exception as exc:
@@ -34,7 +34,7 @@ except Exception as exc:
     elif exc.errno == errno.EMFILE:
         print("You've opened too many files.")
     else:
-        printf("The error number is:", exc.errno)
+        print("The error number is:", exc.errno)
 
 print('''
 6.1.8.11 Processing files
@@ -51,7 +51,7 @@ try:
     # needed to make a copy of module_6-folder to open files from both locations
     # in this case opening form vsc & cmd gives different results
     # s = open("c:/users/user/Desktop/file.txt", "rt")
-    s = open("file.txt", "rt")
+    s = open("file1.txt", "rt")
     # actual processing goes here
     s.close()
 except Exception as exc:
