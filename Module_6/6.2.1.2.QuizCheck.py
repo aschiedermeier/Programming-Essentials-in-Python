@@ -1,17 +1,9 @@
-
-print("hi")   
-print("hi")  
-
-
-class A:
-    def __init__(self,v=2):
-        self.v=v
-    def set (self,v=1):
-        self.v += v
-        return self.v
-      
-print("hi")      
-a = A()
-b=a
-b.set()
-print(a.v)
+print("h")
+def o(p):
+    def q():
+        return '*' * p
+    return q
+    
+r = o(1)
+s = o(2)
+print (r()+s())

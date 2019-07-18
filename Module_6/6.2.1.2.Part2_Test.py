@@ -131,7 +131,7 @@ for x in open('file','rt'):
 
 # 18
 
-print("\n#18: 3")
+print("\n#18: 3 - be careful not to mix up v: variable & v: value. constuctor sets var = 2, b and a are connected, then method adds 1 on both")
 class A:
     def __init__(self,v=2):
         self.v=v
@@ -149,7 +149,7 @@ print("\n#19: readinto()")
 
 
 # 20
-print("\n#20: one character from the stream")
+print("\n#20: one character from the stream, i added extra lines of code to work")
 #q = s.read(1)
 
 s=  open('file','rt')
@@ -161,15 +161,15 @@ print("\n#21: sys.stderr: the screen")
 
 
 # 22
-print("\n#22: __main__")
+print("\n#22: __main__, as it's opened in the program, not the module")
 print(__name__)
 
 # 23
-print("\n#23: fun()")
+print("\n#23: fun(), as we have mentioned fun() explicitly in the import line")
 #from mod import fun
 
 # 24
-print("\n#24: ++++++")
+print("\n#24: ++++++ \n I(2) is a generator objectl the iteration below prints every element !!! check this chapter again")
 def I(n):
     s = '+'
     for i in range (n):
@@ -180,7 +180,7 @@ for x in I(2):
     print(x,end="")
 
 # 25 
-print("\n#25: ***")
+print("\n#25: *** - !!! check chapter again - not sure about 'q')
 def o(p):
     def q():
         return '*' * p
@@ -191,7 +191,7 @@ s = o(2)
 print (r()+s())
 
 # 26
-print("\n#26: abc")
+print("\n#26: abc - iterable class - check chapter!!!")
 class I:
     def __init__(self):
         self.s = 'abc'
@@ -210,14 +210,14 @@ for x in I():
 
 
 # 27
-print("\n#27: 3")
+print("\n#27: 3 - redo chapter!!!")
 try:
     raise Exception(1,2,3)
 except Exception as e:
     print(len(e.args))
 
 # 28
-print("\n#28: error, as default 'excep't must be last")
+print("\n#28: error, as default 'except' must be last")
 # try:
 #     raise Exception
 # except:
