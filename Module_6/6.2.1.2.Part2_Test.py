@@ -1,26 +1,27 @@
 # 1
-print("#1: error ")
+print("\n#1: error - 2 or 4 escape characters ar eok, but not 3")
 #print (len("\\\"))
 
 # 2
-print("#2: invalid: object = Class(1,2) ")
+print("\n#2: invalid, as 3 positional arguments are given, only one or two accepted : object = Class(1,2)")
 class Class:
     def __init__(self,val=0):
         pass
 
+#object = Class(1,2)
 # 3 
-print("#3: AttributeError")
-class A:
-    def __init__(self,v):
-        self.__a=v+1
+print("\n#3: AttributeError - as __ indicates private attribute, which needs to be called after mangling name: print(a._A__a)")
+# class A:
+#     def __init__(self,v):
+#         self.__a=v+1
         
-a = A(0)
-print(a.__a)
+# a = A(0)
+# print(a.__a)
 
 
 
 # 4
-print("#4: False")
+print("\n#4: False, as A ist not subclass of C. print(issubclass(C,A)) is postive")
 class A:
     pass
 class B(A):
@@ -31,42 +32,45 @@ class C(B):
 print(issubclass(A,C))
 
 # 5
-print("#5: False, as a is only in object, but not a class attribute")
+print("\n#5: False. A has only classattribute 'A', but not 'a'. 'a' is also a instance attribute")
 class A:
-    A=1
+    A=1 # a=1: then its True
     def __init__(self):
         self.a = 0
         
 print(hasattr(A,'a'))
 
+A = A() # onject called A
+print(hasattr(A,'a')) # has attribute 'a'
 
 # 6
-print("#6: not more than one except block will be executed, if ther are more than one excetp")
+print("\n#6: not more than one except block will be executed, if there are more than one except")
 
-print("#7: list containing all entities' names")
+# 7
+print("\n#7: list containing all entities' names")
 import math
 print(dir(math))
 
 # 8
-print("#8: excepition, as class A takes no argument ")
-class A:
-    def __init__(self):
-        pass
+print("\n#8: exception, as class A takes no argument ")
+# class A:
+#     def __init__(self):
+#         pass
         
-a = A(1)
-print(hasattr(a,'A'))
+# a = A(1)
+# print(hasattr(a,'A'))
 
 # 9 
-print("#9: 2")
+print("\n#9: 2")
 print (len("\\\\"))
 
 
 # 10
-print("#10: 1.3 ")
+print("\n#10: 1.3 ")
 print(float("1.3"))
 
 # 11
-print("#11: a")
+print("\n#11: a")
 try:
     raise Exception
 except BaseException:
@@ -77,36 +81,34 @@ except:
     print ("c")
 
 # 12
-print("#12: error, as 'var' is not defined ")
-assert var !=0
+print("\n#12: error, as 'var' is not defined ")
+#assert var !=0
 
 # 13
-print("#13: !! check it!!")
-# file a.py
-print ("a",end = "")
+print("\n\n\n#13: cab ")
+# # file a.py
+# print ("a",end = "")
 
-# file b.py
-import a
-print ("b",end = "")
+# # file b.py
+# import a
+# print ("b",end = "")
 
-# file c.py
+# # file c.py
 print ("c",end="")
 import a
 import b
 
 # 14
-print("#14: !!! check home")
-#for line in open('text.txt','rt'):
+print("\n#14: prints out lines")
+for line in open('text.txt','rt'):
+    print(line)
 
 # 15 
-
-print ("#15: pyc")
-
-
+print ("\n#15: compiled Python bytecode is stored in pyc")
 #compiled Python bytecode is stored in 
 
 # 16
-print("#16: b")
+print("\n#16: b, as double inheritance goes from left to right")
 class A:
     def a(self):
         print('a')
@@ -123,13 +125,13 @@ o=C()
 o.c()
 
 # 17
-print("#17: check home - i  guess whole file")
+print("\n#17: whole file")
 for x in open('file','rt'):
     print(x)
 
 # 18
 
-print("#18: 3")
+print("\n#18: 3")
 class A:
     def __init__(self,v=2):
         self.v=v
@@ -143,27 +145,31 @@ b.set()
 print(a.v)
 
 # 19
-print("#19: readinto()")
+print("\n#19: readinto()")
 
 
 # 20
-print("#20: one character from the stream")
+print("\n#20: one character from the stream")
+#q = s.read(1)
+
+s=  open('file','rt')
 q = s.read(1)
+print(q)
 
 # 21
-print("#21: sys.stderr: the screen")
+print("\n#21: sys.stderr: the screen")
 
 
 # 22
-print("#22: __main__")
+print("\n#22: __main__")
 print(__name__)
 
 # 23
-print("#23: fun()")
-from mod import fun
+print("\n#23: fun()")
+#from mod import fun
 
 # 24
-print("#24: ++++++")
+print("\n#24: ++++++")
 def I(n):
     s = '+'
     for i in range (n):
@@ -174,7 +180,7 @@ for x in I(2):
     print(x,end="")
 
 # 25 
-print("#15: ***")
+print("\n#25: ***")
 def o(p):
     def q():
         return '*' * p
@@ -185,7 +191,7 @@ s = o(2)
 print (r()+s())
 
 # 26
-print("#26: abc")
+print("\n#26: abc")
 class I:
     def __init__(self):
         self.s = 'abc'
@@ -204,28 +210,28 @@ for x in I():
 
 
 # 27
-print("#27: 3")
+print("\n#27: 3")
 try:
     raise Exception(1,2,3)
 except Exception as e:
     print(len(e.args))
 
 # 28
-print("#28: error, as except must be last")
-try:
-    raise Exception
-except:
-    print("c")
-except BaseException:
-    print("a")
-except Exception:
-    print("b")
+print("\n#28: error, as default 'excep't must be last")
+# try:
+#     raise Exception
+# except:
+#     print("c")
+# except BaseException:
+#     print("a")
+# except Exception:
+#     print("b")
 
 # 29
-print("#29: r")
+print("\n#29: r")
 print (chr(ord('p')+2))
 
 # 30
-print("#30: entity c from module b from package a")
+print("\n#30: entity c from module b from package a")
 
-from a.b import c
+#from a.b import c
