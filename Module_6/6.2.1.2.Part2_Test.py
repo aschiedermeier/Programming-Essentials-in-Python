@@ -1,6 +1,6 @@
 # 1
 print("#1: error ")
-print (len("\\\"))
+#print (len("\\\"))
 
 # 2
 print("#2: invalid: object = Class(1,2) ")
@@ -77,7 +77,7 @@ except:
     print ("c")
 
 # 12
-print("#12: error, as "var" is not defined ")
+print("#12: error, as 'var' is not defined ")
 assert var !=0
 
 # 13
@@ -96,11 +96,14 @@ import b
 
 # 14
 print("#14: !!! check home")
-for line in open('text.txt','rt'):
+#for line in open('text.txt','rt'):
 
 # 15 
-print("#15: pyc")
-compiled Python bytecode is stored in 
+
+print ("#15: pyc")
+
+
+#compiled Python bytecode is stored in 
 
 # 16
 print("#16: b")
