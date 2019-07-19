@@ -1,9 +1,4 @@
-print("h")
-def o(p):
-    def q():
-        return '*' * p
-    return q
-    
-r = o(1)
-s = o(2)
-print (r()+s())
+print("\n#17: line by line")
+for x in open('file','rt'):
+    print(x)
+    print('1')
