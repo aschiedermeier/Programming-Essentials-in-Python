@@ -20,7 +20,10 @@ print("""\n#2: 1
     The integer has no lenght, so len () returns error""")
 print (len((1,)))
 # print (len((1,)) # error
-
+# compare types
+print (type((1,)))
+print (type(1,))
+print (type(1))
 print("""\n#3: 1
     fun(1) = 1""")
 def fun(x):
@@ -136,17 +139,55 @@ print("""\n#18: Keyword arguments are the ones whose meaning is not dictated by 
 
 print("""\n#19: main""")
 print(__name__)
-print("""\n#20: stdout (as standard output) referring to the screen""")
+print("""\n#20: sys.stdout stream (as standard output) referring to the screen""")
 
-print("""\n#21: """)
+print("""\n#21: object = Class()
+    constructor takes only one argument (self), which does not need to be given explicitly.
+    also "None" counts as one argument too much")
+    """)
 
-print("""\n#22: """)
+class Class:
+    def __init__(self):
+        pass
+    
+object = Class()
+# object = Class(None) # error, None is one argument too much.
 
-print("""\n#23: """)
+print("""\n#22: True False""")
+a = True
+b = False
+a = a or b
+b = a and b
+a = a or b
+print (a,b)
 
-print("""\n#24: """)
+print("""\n#23: 2
+    (1,) is a tuple
+    t[0] is 1 is an integer""")
+t = (1,)
+t=t[0]+t[0]
+print (t)
 
-print("""\n#25: """)
+print("""\n#24: from f import m: function cannot be invoked, because the import statement is invalid.
+    correct:from module import function""")
+
+print("""\n#25: 5
+    class variable A - progress: 1,2,3
+    instance variable a- 2,3,5""")
+class A:
+    A = 1
+    def __init__(self,v=2):
+        self.v = v+A.A
+        A.A +=1
+        
+    def set(self,v):
+        self.v +=v
+        A.A +=1
+        return
+    
+a = A()
+a.set(2)
+print(a.v)
 
 print("""\n#26: """)
 
