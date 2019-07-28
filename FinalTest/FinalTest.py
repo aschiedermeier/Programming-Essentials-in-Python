@@ -3,6 +3,9 @@
 # passing score 70%
 # 78% at first try
 
+for i in range (50):
+    print ()
+    
 print("""\n#1: True
     and operator superior to or
     """)
@@ -56,14 +59,17 @@ print("""\n#5: __init__.py may contain a file intended to intialize a package.
     It can be empty but must not be omitted.""")
 
 print("""\n#6: error, as strings do not support item deletion.""")
-# str = "abcdef"
-# def fun(s):
-#     del s[2]
-#     return s
-# print(fun(str))
+try:
+    str = "abcdef"
+    def fun(s):
+        del s[2]
+        return s
+    print(fun(str))
+except Exception as e:
+    print (e)
 
 print("""\n#7: True
-    class A hast the classattribute 'A'(has to be string)
+    class A hast the classattribute 'A' (has to be string)
     """)
 class A:
     A=1
@@ -113,10 +119,16 @@ for x in ls:
         print ("*")
 
 print("""\n#12: 1
-    beware the extra brackets. It's a tuple with one integer inside. 
-    The integer has no lenght, so len () returns error""")
+    ok like this, as there are  extra brackets. 
+    It's a tuple with one integer inside. 
+    With less brackets only integer ->  integer has no lenght, so len () returns error""")
 print (len((1,)))
-# print (len((1,)) # error
+# extra code with one pair of brackets less
+try:
+    print (len(1,))
+except Exception as e:
+    print (e)
+
 # compare types
 print (type((1,)))
 print (type(1,))
@@ -148,10 +160,18 @@ class Class:
     def __init__(self):
         pass  
 object = Class()
-# object = Class(None) # error, None is one argument too much.
+print (object)
+print (object.__str__())
+print (object.__class__)
+
+try:
+    object = Class(None) # error, None is one argument too much.
+except Exception as e:
+    print (e)
+    
 
 print("""\n#15: XX
-    function in function returns 2 X's""")
+    b is a closure and returns 2 X's""")
 def a(x):
     def b():
         return x+x
@@ -160,6 +180,15 @@ def a(x):
 x = a ('x')
 y = a ('')
 print(x()+y())
+
+## non closure version
+def a(x):
+    return x+x
+    
+print(a('x'))    
+x = a ('x')
+y = a ('')
+print(x+y)
 
 print("""\n#16: 1
     _a is a normal instance variable
@@ -175,7 +204,10 @@ class A:
     def __init__(self,v):
         self.__a=v+1     
 a = A(0)
-# print(a.__a) # error, as __a is hidden
+try:
+    print(a.__a) # error, as __a is hidden
+except Exception as e:
+    print (e)
 print(a._A__a) # mangling to call hidden variable
 
 print("""\n#17: 0
@@ -224,6 +256,7 @@ print("""\n#22: error
 #     print("a")
 # except Exception:
 #     print("b")
+
 
 print("""\n#23: ******
     n is 3, so 3 loops in for loop
@@ -333,7 +366,6 @@ print("""\n#34: one
     break while loop, skip else branch, as while was chosen before""")
 
 i = 4
-
 while i > 0:
     i-=2
     print("*")
@@ -344,21 +376,26 @@ else:
 
 print("""\n#35: exception
     g needs (self) argument in definition
-    Here, both functions have a parameter named self at the first position of the parameters list.
+    Here, both functions have a parameter named self at the 
+    first position of the parameters list.
     Is it needed? Yes, it is.
     All methods have to have this parameter. 
     It plays the same role as the first constructor parameter.
     """)
-# class A:
-#     def __init__(self):
-#         pass
-#     def f(self):
-#         return 1
-#     def g():
-#         return self.f()
+    
+class A:
+    def __init__(self):
+        pass
+    def f(self):
+        return 1
+    def g():
+        return self.f()
 
-# a = A()
-# print(a.g())
+try:
+    a = A()
+    print(a.g())
+except Exception as e:
+    print (e)
 
 ## corrected code
 class A:
@@ -424,14 +461,14 @@ print("""\n#43: function cannot be invoked
     correct:from module import function""")
 
 print("""\n#44: error: non-keyword after keyword argument""")
-# def f(par2,par1):
-#     return par2 + par1  
-# print(f(par2=1,2))
-
-# corrected code
 def f(par2,par1):
-    return par2 + par1
-    
+    return par2 + par1  
+try:
+    eval("print(f(par2=1,2))")
+except Exception as e:
+    print (e)
+
+# corrected code    
 print(f(2,par1=1))
 
 print("""\n#45: 3.5""")
@@ -443,8 +480,11 @@ print("""\n#46: error
     The word escape should be understood specifically - it means that the series of characters in the string escapes for the moment (a very short moment) to introduce a special inclusion.
     In other words, the backslash doesn't mean anything in itself, but is only a kind of announcement, that the next character after the backslash has a different meaning too.
 """)
-#x ="\"
-#print(len(x))
+try:
+    eval('x ="\"')
+    print(len(x))
+except Exception as e:
+    print (e)
 
 print("""\n#47: ==
     operator whether two variables are equal""")

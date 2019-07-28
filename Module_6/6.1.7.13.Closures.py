@@ -16,6 +16,16 @@ var = 1
 fun = outer(var) # The function returned during the outer() invocation is a closure.
 print(fun())
 
+## closure example from final test
+def a(x):
+    def b():
+        return x+x
+    return b
+    
+x = a ('x')
+y = a ('')
+print(x()+y())
+
 print('''
 6.1.7.13 Generators and closures
 A brief look at closures: continued
